@@ -1,0 +1,73 @@
+name: ChunkProtect
+version: 1.0.0
+main: com.chunkprotect.ChunkProtectPlugin
+api-version: 1.20
+description: Plugin de protección de chunks con roles, /home y /spawn
+authors: [ChunkProtect]
+
+commands:
+  claim:
+    description: Reclama chunks para protegerlos
+    usage: /claim <radio>
+    permission: chunkprotect.claim
+  unclaim:
+    description: Elimina la protección de un chunk
+    usage: /unclaim
+    permission: chunkprotect.claim
+  claimlist:
+    description: Ver tus protecciones
+    usage: /claimlist
+    permission: chunkprotect.claim
+  trust:
+    description: Añade un jugador a tu protección
+    usage: /trust <jugador> <ADMIN|MEMBER|VISITOR>
+    permission: chunkprotect.claim
+  untrust:
+    description: Elimina un jugador de tu protección
+    usage: /untrust <jugador>
+    permission: chunkprotect.claim
+  claiminfo:
+    description: Info del chunk donde estás
+    usage: /claiminfo
+    permission: chunkprotect.claim
+  home:
+    description: Teletransporta a tu home o protección
+    usage: /home [nombre]
+    permission: chunkprotect.home
+  sethome:
+    description: Establece tu home
+    usage: /sethome [nombre]
+    permission: chunkprotect.home
+  delhome:
+    description: Elimina un home
+    usage: /delhome [nombre]
+    permission: chunkprotect.home
+  homes:
+    description: Lista todos tus homes
+    usage: /homes
+    permission: chunkprotect.home
+  spawn:
+    description: Teletransporta al spawn
+    usage: /spawn
+    permission: chunkprotect.spawn
+  setspawn:
+    description: Establece el spawn del servidor
+    usage: /setspawn
+    permission: chunkprotect.setspawn
+
+permissions:
+  chunkprotect.claim:
+    description: Puede reclamar y gestionar chunks
+    default: true
+  chunkprotect.home:
+    description: Puede usar /home y /sethome
+    default: true
+  chunkprotect.spawn:
+    description: Puede usar /spawn
+    default: true
+  chunkprotect.setspawn:
+    description: Puede establecer el spawn
+    default: op
+  chunkprotect.bypass:
+    description: Puede ignorar todas las protecciones
+    default: op

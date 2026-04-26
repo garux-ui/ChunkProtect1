@@ -1,0 +1,22 @@
+# ChunkProtect Configuration
+# ===========================
+
+# Número máximo de chunks que un jugador puede reclamar en total
+max-claims-per-player: 25
+
+# Radio máximo permitido en /claim <radio>
+# Radio 0 = 1 chunk, Radio 1 = 3x3, Radio 2 = 5x5, Radio 5 = 11x11
+max-claim-radius: 5
+
+# Número máximo de homes por jugador
+max-homes-per-player: 5
+
+# Tiempo de espera entre teletransportes en segundos (0 = sin espera)
+teleport-delay: 3
+
+# Mensajes personalizables
+messages:
+  no-permission: "§c✗ No tienes permiso para hacer eso aquí."
+  chunk-claimed: "§a✔ ¡Territorio reclamado con éxito!"
+  chunk-unclaimed: "§a✔ Territorio liberado."
+  not-your-chunk: "§c✗ No eres el dueño de este territorio."

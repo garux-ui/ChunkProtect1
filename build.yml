@@ -1,0 +1,47 @@
+name: Build & Release ChunkProtect
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean package -B
+
+      - name: Upload JAR as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChunkProtect-${{ github.run_number }}
+          path: target/ChunkProtect-*.jar
+          if-no-files-found: error
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: "ChunkProtect v1.0.0 (Build ${{ github.run_number }})"
+          files: target/ChunkProtect-*.jar
+          generate_release_notes: false
+          body: |
+            ## ChunkProtect Plugin
+            Plugin compilado automáticamente desde el último commit en `main`.
+
+            ### Instalación en Aternos
+            1. Descarga el `.jar` de abajo
+            2. Ve a **Plugins** en Aternos → **Upload**
+            3. Sube el archivo y reinicia el servidor
